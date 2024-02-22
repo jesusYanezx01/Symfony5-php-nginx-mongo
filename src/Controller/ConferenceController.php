@@ -17,15 +17,8 @@ class ConferenceController extends AbstractController
         if($name){
             $greet = sprintf('<h1>Hello %s! </h1>', htmlspecialchars($name));
         }
-        //return $this->render('conference/index.html.twig');
-        return new  Response(<<<EOF
-<html>
-    <body>
-    $greet
-        <h1>Hola mundo desde Symfony</h1>
-    </body>
-</html> 
-EOF
-        );
+        return $this->render('conference/index.html.twig', [
+            'name' => $name,
+        ]);
     }
 }
